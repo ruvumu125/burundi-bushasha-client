@@ -1,5 +1,5 @@
-# Use Node.js 12 as the base image for building
-FROM node:22 AS build
+# Use Node.js 18 as the base image for building
+FROM node:18 AS build
 
 # Set the working directory
 WORKDIR /app
@@ -16,13 +16,16 @@ COPY . .
 # Build the React app for production
 RUN npm run build
 
+# Debugging: List files in the build directory
+RUN ls -la /app/build
+
 # Use an Nginx server to serve the built files
 FROM nginx:alpine
 
 # Copy the build output to the Nginx HTML folder
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port 80 (inside container)
+# Expose port 80
 EXPOSE 80
 
 # Start Nginx
