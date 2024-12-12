@@ -8,9 +8,10 @@ import {registerMember} from "../../utils/apiFunctions/memberApiFunctions.js";
 const Register = () => {
 
     //get 18 years ago from now
-    const currentDate = new Date();
-    currentDate.setFullYear(currentDate.getFullYear() - 18);
-    const date18YearsAgo = currentDate.toLocaleDateString();
+    const today = new Date();
+    const date18YearsAgo = new Date(today.setFullYear(today.getFullYear() - 18))
+        .toISOString()
+        .split('T')[0];
 
     //saving/update declaration
     const [successMessage, setSuccessMessage] = useState("")
