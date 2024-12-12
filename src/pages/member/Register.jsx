@@ -7,6 +7,11 @@ import {registerMember} from "../../utils/apiFunctions/memberApiFunctions.js";
 
 const Register = () => {
 
+    //get 18 years ago from now
+    const currentDate = new Date();
+    currentDate.setFullYear(currentDate.getFullYear() - 18);
+    const date18YearsAgo = currentDate.toLocaleDateString();
+
     //saving/update declaration
     const [successMessage, setSuccessMessage] = useState("")
     const [errorMessage, setErrorMessage] = useState([])
@@ -17,7 +22,7 @@ const Register = () => {
         "memberIdNumber": "0",
         "firstName": "",
         "lastName": "",
-        "dateOfBirth": "2080-12-12",
+        "dateOfBirth": date18YearsAgo,
         "gender": "MALE",
         "nationalityMembers": [
             {
@@ -183,7 +188,7 @@ const Register = () => {
                     "memberIdNumber": "",
                     "firstName": "",
                     "lastName": "",
-                    "dateOfBirth": "2080-12-12",
+                    "dateOfBirth": date18YearsAgo,
                     "gender": "MALE",
                     "nationalityMembers": [
                         {
