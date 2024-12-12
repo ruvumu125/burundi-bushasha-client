@@ -220,11 +220,10 @@ const Register = () => {
                 setSavingSuccessfull(true);
             }
         } catch (error) {
-            console.log(error)
-            // setErrorMessage(error.response.data.errors)
-            // setIsSaving(false)
-            // setSavingSuccessfull(false)
-            // moveToTop()
+            setErrorMessage(error.response.data.errors)
+            setIsSaving(false)
+            setSavingSuccessfull(false)
+            moveToTop()
         }
     };
 
