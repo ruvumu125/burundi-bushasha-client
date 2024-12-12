@@ -13,17 +13,17 @@ RUN npm install
 # Copy the rest of the application files
 COPY . .
 
-# Build the React app for production
+# Build the Vite app for production
 RUN npm run build
 
-# Debugging: List files in the build directory
-RUN ls -la /app/build
+# Debugging: List files in the dist directory (default output for Vite)
+RUN ls -la /app/dist
 
 # Use an Nginx server to serve the built files
 FROM nginx:alpine
 
-# Copy the build output to the Nginx HTML folder
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy the Vite build output to the Nginx HTML folder
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
