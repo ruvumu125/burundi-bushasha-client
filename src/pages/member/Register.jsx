@@ -17,7 +17,7 @@ const Register = () => {
         "memberIdNumber": "0",
         "firstName": "",
         "lastName": "",
-        "dateOfBirth": "",
+        "dateOfBirth": "2080-12-12",
         "gender": "MALE",
         "nationalityMembers": [
             {
@@ -183,7 +183,7 @@ const Register = () => {
                     "memberIdNumber": "",
                     "firstName": "",
                     "lastName": "",
-                    "dateOfBirth": "",
+                    "dateOfBirth": "2080-12-12",
                     "gender": "MALE",
                     "nationalityMembers": [
                         {
@@ -220,10 +220,11 @@ const Register = () => {
                 setSavingSuccessfull(true);
             }
         } catch (error) {
-            setErrorMessage(error.response.data.errors)
-            setIsSaving(false)
-            setSavingSuccessfull(false)
-            moveToTop()
+            console.log(error)
+            // setErrorMessage(error.response.data.errors)
+            // setIsSaving(false)
+            // setSavingSuccessfull(false)
+            // moveToTop()
         }
     };
 
