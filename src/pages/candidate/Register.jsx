@@ -17,7 +17,7 @@ const AddMem = () => {
   const years = Array.from({ length: 51 }, (_, i) => currentYear - i);
   const token = Cookies.get("jwtToken");
   const memberIdNumber=jwtDecode(token).memberIdNumber;
-  const username=jwtDecode(token).username;
+  const username=jwtDecode(token).nomUtilisateur;
   const id_user=jwtDecode(token).id;
   const [candidacyField, setCandidacyField] = useState([])
 
