@@ -32,8 +32,7 @@ const Login = () => {
     try {
       const success = await loginUser(login); // Assume loginUser is your API call for logging in
       if (success) {
-        const token = success.access_token;
-        const refreshToken = success.refresh_token;
+        const token = success.token;
         auth.handleLogin(token);
         navigate("/")
 

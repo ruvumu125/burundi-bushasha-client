@@ -18,8 +18,7 @@ export const AuthProvider = ({ children }) => {
 
     const handleLogin = (token) => {
         const decodedUser = jwtDecode(token);
-        Cookies.set("jwtToken", token, { expires: 7, sameSite: "strict" }); // Set cookie for 7 days
-        Cookies.set("refreshJwtToken", token, { expires: 14, sameSite: "strict" });
+        Cookies.set("jwtToken", token, { expires: 7, sameSite: "strict" });
         setUser(decodedUser);
 
         // Show success message
@@ -36,8 +35,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const handleLogout = () => {
-        Cookies.remove("jwtToken"); // Remove the cookie
-        Cookies.remove("refreshJwtToken");
+        Cookies.remove("jwtToken");
         setUser(null);
 
         // Show logout message
