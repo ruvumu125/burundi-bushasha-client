@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 const token = Cookies.get("jwtToken");
 
 export async function registerMember(newMemberData) {
-    const response = await api.post("/members/burundibushasha/v1/register",newMemberData,getHeaders(token).headers);
+    const response = await api.post("/members/burundibushasha/v1/register",newMemberData);
     return response.status === 200;
 }
 export async function upgradeToCandidate(newCandidateData) {

@@ -26,7 +26,7 @@ const Register = () => {
         "firstName": "",
         "lastName": "",
         "dateOfBirth": date18YearsAgo,
-        "gender": "MALE",
+        "gender": "",
         "nationalityMembers": [
             {
                 "id": 0,
@@ -192,7 +192,7 @@ const Register = () => {
                     "firstName": "",
                     "lastName": "",
                     "dateOfBirth": date18YearsAgo,
-                    "gender": "MALE",
+                    "gender": "",
                     "nationalityMembers": [
                         {
                             "id": 0,
@@ -228,6 +228,7 @@ const Register = () => {
                 setSavingSuccessfull(true);
             }
         } catch (error) {
+            console.log(error)
             setErrorMessage(error.response.data.errors)
             setIsSaving(false)
             setSavingSuccessfull(false)
