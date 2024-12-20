@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 import {getNationalities} from "../../utils/apiFunctions/nationalityApiFunctions.js";
 import {getCountries} from "../../utils/apiFunctions/countryApiFunctions.js";
 import {registerMember} from "../../utils/apiFunctions/memberApiFunctions.js";
+import {useGetHeader} from "../../components/useGetHeader.js";
 
 const Register = () => {
 
+    const headers = useGetHeader();
     //get 18 years ago from now
     const today = new Date();
     const date18YearsAgo = new Date(today.setFullYear(today.getFullYear() - 18))
@@ -38,7 +40,7 @@ const Register = () => {
         "isEmailVerified": true,
         "phoneNumber": "",
         "whatsappNumber": "",
-        "username": "",
+        "nomUtilisateur": "",
         "password": "",
         "confirmPassword": "",
         "verificationToken": "",
@@ -160,7 +162,7 @@ const Register = () => {
     const [formValues, setFormValues] = useState({
         lastName: '',
         firstName: '',
-        username: '',
+        nomUtilisateur: '',
         email: '',
         password: '',
         confirmPassword: '',
@@ -204,7 +206,7 @@ const Register = () => {
                     "isEmailVerified": true,
                     "phoneNumber": "",
                     "whatsappNumber": "",
-                    "username": "",
+                    "nomUtilisateur": "",
                     "password": "",
                     "confirmPassword": "",
                     "verificationToken": "",
@@ -315,13 +317,13 @@ const Register = () => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-1 mb-2">
-                  <label className="text-gray-500 text-sm" htmlFor="username">Nom d&apos;utilisateur</label>
+                  <label className="text-gray-500 text-sm" htmlFor="nomUtilisateur">Nom d&apos;utilisateur</label>
                   <input
                     type="text"
-                    id='username'
+                    id='nomUtilisateur'
                     placeholder="iamjohn"
-                    name="username"
-                    value={newMember.username}
+                    name="nomUtilisateur"
+                    value={newMember.nomUtilisateur}
                     onChange={handleInputChange}
                     className={`h-10 bg-gray-100 px-4 text-sm rounded-md focus:border-primary-color border outline-none `}
                   />
